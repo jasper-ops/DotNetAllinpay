@@ -30,17 +30,17 @@ jobs:
 
       - name: Pack Jasper.Allinpay.Core
         run: dotnet pack ./Jasper.Allinpay.Core/Jasper.Allinpay.Core.csproj \
-          --configuration Release \
           --no-build \
           --output ./nupkg \
-          -p:Version=${GITHUB_REF_NAME#v}
+          -p:Version=${GITHUB_REF_NAME#v} \
+          -p:Configuration=Release
 
       - name: Pack Jasper.Allinpay.AspNetCore
         run: dotnet pack ./Jasper.Allinpay.AspNetCore/Jasper.Allinpay.AspNetCore.csproj \
-          --configuration Release \
           --no-build \
           --output ./nupkg \
-          -p:Version=${GITHUB_REF_NAME#v}
+          -p:Version=${GITHUB_REF_NAME#v} \
+          -p:Configuration=Release
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch: # 手动触发
 
 jobs:
   build-and-pack:
@@ -20,28 +21,38 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore
-      
-      - name: Build
+
+      - name: Build projects
         run: dotnet build --no-restore --configuration Release -p:Version=${GITHUB_REF_NAME#v}
 
       - name: Clean nupkg folder
         run: rm -rf ./nupkg && mkdir ./nupkg
 
-      - name: Pack Nuget
-        run: dotnet pack \
+      - name: Pack Jasper.Allinpay.Core
+        run: dotnet pack ./Jasper.Allinpay.Core/Jasper.Allinpay.Core.csproj \
           --configuration Release \
           --no-build \
           --output ./nupkg \
           -p:Version=${GITHUB_REF_NAME#v}
 
-      - name: Upload artifact (NuGet packages)
+      - name: Pack Jasper.Allinpay.AspNetCore
+        run: dotnet pack ./Jasper.Allinpay.AspNetCore/Jasper.Allinpay.AspNetCore.csproj \
+          --configuration Release \
+          --no-build \
+          --output ./nupkg \
+          -p:Version=${GITHUB_REF_NAME#v}
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: nupkg
           path: ./nupkg/*.nupkg
 
-      - name: Push to NuGet.org
-        run: dotnet nuget push ./nupkg/*.nupkg \
-          --source https://api.nuget.org/v3/index.json \
-          --api-key ${{ secrets.NUGET_API_KEY }} \
-          --skip-duplicate
+      - name: Push packages to NuGet.org
+        run: |
+          for f in ./nupkg/*.nupkg; do
+            dotnet nuget push "$f" \
+              --source https://api.nuget.org/v3/index.json \
+              --api-key ${{ secrets.NUGET_API_KEY }} \
+              --skip-duplicate
+          done

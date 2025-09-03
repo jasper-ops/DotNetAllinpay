@@ -8,8 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Jasper.Allinpay.AspNetCore" Version="1.0.0" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Jasper.Allinpay.AspNetCore\Jasper.Allinpay.AspNetCore.csproj" />
     </ItemGroup>
 
 </Project>

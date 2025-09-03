@@ -1,0 +1,47 @@
+﻿name: Publish NuGet Packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+      
+      - name: Build
+        run: dotnet build --no-restore --configuration Release -p:Version=${GITHUB_REF_NAME#v}
+
+      - name: Clean nupkg folder
+        run: rm -rf ./nupkg && mkdir ./nupkg
+
+      - name: Pack Nuget
+        run: dotnet pack \
+          --configuration Release \
+          --no-build \
+          --output ./nupkg \
+          -p:Version=${GITHUB_REF_NAME#v}
+
+      - name: Upload artifact (NuGet packages)
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkg
+          path: ./nupkg/*.nupkg
+
+      - name: Push to NuGet.org
+        run: dotnet nuget push ./nupkg/*.nupkg \
+          --source https://api.nuget.org/v3/index.json \
+          --api-key ${{ secrets.NUGET_API_KEY }} \
+          --skip-duplicate

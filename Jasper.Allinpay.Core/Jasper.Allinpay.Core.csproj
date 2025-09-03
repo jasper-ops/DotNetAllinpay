@@ -1,9 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="..\Version.props" />
-    
+
     <PropertyGroup>
+        <!-- 默认版本号（本地开发用，标签发布时会被覆盖） -->
+        <Version Condition=" '$(Version)' == '' ">1.0.0</Version>
+        <!-- 当外部传入 Version 参数时，使用传入的值（如 GitHub Actions 中的标签版本） -->
+        <Version Condition=" '$(Version)' != '' ">$(Version)</Version>
+
         <PackageId>Jasper.Allinpay.Core</PackageId>
-        <Version>$(AllinPaySdkVersion)</Version>
+
         <TargetFramework>net8.0</TargetFramework>
         <Description>通联支付核心SDK，提供可扩展的Client以及统一支付的请求模型</Description>
         <Authors>Jasper</Authors>
@@ -15,9 +19,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Flurl.Http" Version="4.0.2" />
-      <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8" />
-      <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+        <PackageReference Include="Flurl.Http" Version="4.0.2"/>
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8"/>
+        <PackageReference Include="Portable.BouncyCastle" Version="1.9.0"/>
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasper.Allinpay.Core", "Jasper.Allinpay.Core\Jasper.Allinpay.Core.csproj", "{42847F53-3B70-4070-8B16-BFEBF26F80D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasper.Allinpay.ConsoleDemo", "Jasper.Allinpay.ConsoleDemo\Jasper.Allinpay.ConsoleDemo.csproj", "{F5C507AB-E74A-47F5-AD5E-96BD4651BB28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasper.Allinpay.AspNetCore", "Jasper.Allinpay.AspNetCore\Jasper.Allinpay.AspNetCore.csproj", "{1E052E80-B4F2-44BF-8F11-43A5F1037EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jasper.Allinpay.AspNetCoreDemo", "Jasper.Allinpay.AspNetCoreDemo\Jasper.Allinpay.AspNetCoreDemo.csproj", "{313E2B50-48E8-453E-A2E2-C138D5B399EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42847F53-3B70-4070-8B16-BFEBF26F80D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42847F53-3B70-4070-8B16-BFEBF26F80D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42847F53-3B70-4070-8B16-BFEBF26F80D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42847F53-3B70-4070-8B16-BFEBF26F80D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5C507AB-E74A-47F5-AD5E-96BD4651BB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C507AB-E74A-47F5-AD5E-96BD4651BB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C507AB-E74A-47F5-AD5E-96BD4651BB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C507AB-E74A-47F5-AD5E-96BD4651BB28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E052E80-B4F2-44BF-8F11-43A5F1037EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E052E80-B4F2-44BF-8F11-43A5F1037EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E052E80-B4F2-44BF-8F11-43A5F1037EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E052E80-B4F2-44BF-8F11-43A5F1037EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{313E2B50-48E8-453E-A2E2-C138D5B399EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{313E2B50-48E8-453E-A2E2-C138D5B399EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{313E2B50-48E8-453E-A2E2-C138D5B399EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{313E2B50-48E8-453E-A2E2-C138D5B399EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

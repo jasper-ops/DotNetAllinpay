@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\Version.props" />
+    
+    <PropertyGroup>
+        <PackageId>Jasper.Allinpay.Core</PackageId>
+        <Version>$(AllinPaySdkVersion)</Version>
+        <TargetFramework>net8.0</TargetFramework>
+        <Description>通联支付核心SDK，提供可扩展的Client以及统一支付的请求模型</Description>
+        <Authors>Jasper</Authors>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Flurl.Http" Version="4.0.2" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.8" />
+      <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
+    </ItemGroup>
+
+</Project>

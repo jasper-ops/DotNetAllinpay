@@ -1,0 +1,6 @@
+﻿<Project>
+    <PropertyGroup>
+        <!-- 共享版本号（仅需在此处修改） -->
+        <AllinPaySdkVersion>1.0.0</AllinPaySdkVersion>
+    </PropertyGroup>
+</Project>

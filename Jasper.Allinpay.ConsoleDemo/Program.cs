@@ -22,13 +22,14 @@ class Program {
         var client = sp.GetRequiredService<IAllinpayClient>();
 
         var orderNo = Guid.NewGuid().ToString("N");
-        
+
         var response = await client.ExecuteUnifiedPaymentAsync(request => {
             request.PayType = "A01";
             request.TrxAmt = 1;
             request.UnireqSn = orderNo;
         });
-        
+
+        Console.WriteLine(response.Data?.PayInfo);
         Console.WriteLine("结束");
     }
 }
